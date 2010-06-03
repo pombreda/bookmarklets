@@ -6,7 +6,7 @@ javascript:(function(){
 var BM = {
   'run': function() {
     var ol = document.createElement('ol');
-    var res = document.getElementById('ires');
+    var res = document.getElementById('rso');
     jQuery(res).find('li.g a.l').each(function(i,v){
       ol.appendChild(BM.getLi(v));
     });

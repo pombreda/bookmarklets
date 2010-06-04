@@ -7,7 +7,6 @@ javascript:(function(){
 var BM = {
   're_escape_csv': new RegExp('[\\"\']', 'g'),
   'run': function() {
-    var res = document.getElementById('center_col');
     var csv = '';
     jQuery('ol li.g a.l').each(function(i,v){
       csv += BM.csvField(v.href)+','+BM.csvField(v.innerHTML)+"\n";

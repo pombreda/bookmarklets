@@ -6,8 +6,8 @@ javascript:(function(){
 var BM = {
   'run': function() {
     var ol = document.createElement('ol');
-    var res = document.getElementById('rso');
-    jQuery(res).find('li.g a.l').each(function(i,v){
+    var res = document.getElementById('center_col');
+    jQuery(res).find('ol li.g a.l').each(function(i,v){
       ol.appendChild(BM.getLi(v));
     });
     res.innerHTML='';

@@ -21,7 +21,7 @@ function tables2CSV() {
         .html($.map($table.find('tr'), function(tr) {
             return $.map($(tr).find('th, td'), function(e) {
                 return '"' + $(e).text().replace('"', '""') + '"'
-           }).join(';')
+           }).join(',')
         }).join('<br>')).insertAfter($table);
    });
 }

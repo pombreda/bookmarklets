@@ -3,7 +3,7 @@ javascript: (function() {
 // http://net.tutsplus.com/tutorials/javascript-ajax/create-bookmarklets-the-right-way/
 if ('undefined'==typeof jQuery) {
     script = document.createElement( 'script' );
-    script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
+    script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js';
     script.onload=tables2CSV;
     document.body.appendChild(script);
 }

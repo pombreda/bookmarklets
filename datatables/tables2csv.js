@@ -20,7 +20,7 @@ function tables2CSV() {
         .css('width', $table.width())
         .html($.map($table.find('tr'), function(tr) {
             return $.map($(tr).find('th, td'), function(e) {
-                return '"' + $(e).text().replace('"', '""') + '"'
+                return '"' + $(e).text().trim().replace('"', '""') + '"'
            }).join(',')
         }).join('<br>')).insertAfter($table);
    });

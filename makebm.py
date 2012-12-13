@@ -10,6 +10,6 @@ for root, dirs, files in os.walk(rootdir):
         if '.js' == fext:
             filename = os.path.join(root, f)
             compressed = subprocess.check_output(['yui-compressor', filename])
-            links.append('### %s\n`%s`' % (f, compressed))
+            links.append('### %s\n\t%s' % (f, compressed))
 
 print '\n\n'.join(links)

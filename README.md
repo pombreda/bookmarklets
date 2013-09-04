@@ -2,13 +2,17 @@
 
 To add one of the bookmarklets to your browser, create a new bookmark (CTRL+D) and replace the URL string with the appropriate JavaScript snippet from below. Alternatively you can use a tool such as [YUI Compressor](https://developer.yahoo.com/yui/compressor/) to remove comments and compress the JS code.
 
-## Bookmarklet Code (tested in Google Chrome)
+## Bookmarklet Code (Not tested in IE)
+
 
 ### go2urlwithoutsearch.js
 	javascript:(function(){document.location.href=document.location.href.replace(document.location.search,"")}());
 
 ### extracthrefs.js
 	javascript:(function(){if("undefined"==typeof jQuery){script=document.createElement("script");script.src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js";script.onload=a;document.body.appendChild(script)}else{a()}function a(){$("a").each(function(){document.write($(this).attr("href")+"<br>")})}})();
+
+### bookmark.js
+	javascript:(function(){var b=document.location.href;var a=document.querySelector('link[rel="canonical"]');if(a){b=a.getAttribute("href")||b}document.location="http://notebux.com/bookmarks/add/?url="+encodeURIComponent(b)}());
 
 ### rich_snippets_test.js
 	javascript:void (window.open("http://www.google.com/webmasters/tools/richsnippets?url="+encodeURIComponent(window.location.href),"_blank"));
@@ -30,4 +34,3 @@ To add one of the bookmarklets to your browser, create a new bookmark (CTRL+D) a
 
 ### flashvideodownloader.js
 	javascript:(function(){document.location="http://www.flashvideodownloader.org/download2.php?u="+encodeURIComponent(document.location.href)}());
-

@@ -30,7 +30,7 @@ javascript: (function() {
             'subst':'Pokédex'
         },
         {
-            're': new RegExp('\\belextric\\b','gmi'),
+            're': new RegExp('\\belectric\\b','gmi'),
             'subst':'atomic'
         },
         {

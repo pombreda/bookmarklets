@@ -59,32 +59,40 @@ javascript: (function() {
         },
     ];
 
-    script = document.createElement( 'script' );
-    script.src = 'http://code.jquery.com/jquery-2.0.3.min.js';
-    script.onload = substitute;
-    document.body.appendChild(script);
+    function walkTextNodes(node, callback) {
+        var nextNode, n;
 
-    function substitute() {
-        jQuery.fn.processTextNodes = function(callback) {
-            jQuery(this).each(function(index, element) {
-                if ('script' == element.nodeName || 'style' == element.nodeName)
-                    return;
-                if (element.nodeType == Node.TEXT_NODE) {
-                    element.nodeValue = callback(element.nodeValue);
-                } else if (element.hasChildNodes()) {
-                    jQuery(element.childNodes).processTextNodes(callback);
-                }
-            });
-        };
-        $('title, body').processTextNodes(function(s) {
-            if (typeof s === 'undefined') {
-                return;
+        if ('undefined' === typeof node.nodeName)
+            return;
+
+        n = node.nodeName.toLowerCase();
+        if (-1 !== ['script', 'style'].indexOf(n))
+            return;
+
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node = node.firstChild) {
+                do {
+                    nextNode = node.nextSibling;
+                    walkTextNodes(node, callback);
+                } while(node = nextNode);
             }
-            for (i in substs) {
-                o = substs[i];
-                s = s.replace(o.re, o.subst);
-            }
-            return s;
-        });
+        }
+        else if (node.nodeType === Node.TEXT_NODE) {
+            node.data = callback(node.data);
+        }
     }
+
+    function applySubsts(s) {
+        if (typeof s === 'undefined') {
+            return;
+        }
+        for (i in substs) {
+            o = substs[i];
+            s = s.replace(o.re, o.subst);
+        }
+        return s;
+    }
+
+    document.title = applySubsts(document.title);
+    walkTextNodes(document.body, applySubsts);
 })();

@@ -2,6 +2,10 @@
 
 To add one of the bookmarklets to your browser, create a new bookmark (CTRL+D) and replace the URL string with the appropriate JavaScript snippet from below. Alternatively you can use a tool such as [YUI Compressor](https://developer.yahoo.com/yui/compressor/) to remove comments and compress the JS code.
 
+## Known Issues
+
+bl.ocks.js doesn't work in Firefox, vote for this [Firefox issue](https://support.mozilla.org/en-US/questions/970761) to change this.
+
 ## Bookmarklet Code (Not tested in IE)
 
 ### go2urlwithoutsearch.js
@@ -9,6 +13,9 @@ To add one of the bookmarklets to your browser, create a new bookmark (CTRL+D) a
 
 ### extracthrefs.js
 	javascript:(function(){if("undefined"==typeof jQuery){script=document.createElement("script");script.src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js";script.onload=a;document.body.appendChild(script)}else{a()}function a(){$("a").each(function(){document.write($(this).attr("href")+"<br>")})}})();
+
+### bl.ocks.js
+	javascript:(function(){document.location="http://bl.ocks.org/"+document.location.href.split("/").reverse()[0]}());
 
 ### bookmark.js
 	javascript:(function(){var b=document.location.href;var a=document.querySelector('link[rel="canonical"]');if(a){b=a.getAttribute("href")||b}document.location="http://notebux.com/bookmarks/add/?url="+encodeURIComponent(b)}());

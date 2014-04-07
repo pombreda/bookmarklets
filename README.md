@@ -4,7 +4,7 @@ To add one of the bookmarklets to your browser, create a new bookmark (CTRL+D) a
 
 ## Known Issues
 
-bl.ocks.js doesn't work in Firefox, vote for this [Firefox issue](https://support.mozilla.org/en-US/questions/970761) to change this.
+bl.ocks.js doesn't work in Firefox, vote for this [Firefox bug](https://bugzilla.mozilla.org/show_bug.cgi?id=866522) to change this, [more info here](https://support.mozilla.org/en-US/questions/970761).
 
 ## Bookmarklet Code (Not tested in IE)
 

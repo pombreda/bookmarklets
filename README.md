@@ -38,6 +38,9 @@ bl.ocks.js doesn't work in Firefox, vote for this [Firefox bug](https://bugzilla
 ### tablecount.js
 	javascript:(function(){if("undefined"==typeof jQuery){script=document.createElement("script");script.src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js";script.onload=a;document.body.appendChild(script)}else{a()}function a(){$("table").each(function(d,c){console.log(d,c)})}})();
 
+### uncheckall.js
+	javascript:(function(){var a=document.querySelectorAll("input[type=checkbox]");for(var b in a){a[b].checked=false}}());
+
 ### export2list.js
 	var list="";$("dl dt").each(function(b,d){var c=$(d).find("a");list+='<li><a href="'+c.attr("href")+'">'+c.text()+"</a></li>\n"});console.log("<ul>"+list+"</ul>");
 

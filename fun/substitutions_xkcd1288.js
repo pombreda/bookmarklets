@@ -56,7 +56,7 @@ javascript: (function() {
         {
             're': new RegExp('\\bcould\\s+not\\s+be\\s+reached\\s+for\\s+comment\\b','gmi'),
             'subst':'is guilty and everyone knows it.'
-        },
+        }
     ];
 
     function walkTextNodes(node, callback) {

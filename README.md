@@ -29,6 +29,9 @@ bl.ocks.js doesn't work in Firefox, vote for this [Firefox bug](https://bugzilla
 ### highlight_layout.js
 	javascript:(function(){var a=document.createElement("style");a.type="text/css";a.innerHTML="* { background-color: rgba(255,0,0,.2); } * * { background-color: rgba(0,255,0,.2); } * * * { background-color: rgba(0,0,255,.2); } * * * * { background-color: rgba(255,0,255,.2); } * * * * * { background-color: rgba(0,255,255,.2); } * * * * * * { background-color: rgba(255,255,0,.2); };";document.body.appendChild(a)}());
 
+### highlight_text_with_numbers.js
+	javascript:(function(){var c=/\d/gi;function b(e,g){var d,f;if("undefined"===typeof e.nodeName){return}f=e.nodeName.toLowerCase();if(-1!==["script","style"].indexOf(f)){return}if(e.nodeType===Node.ELEMENT_NODE){if(e=e.firstChild){do{d=e.nextSibling;b(e,g)}while(e=d)}}else{if(e.nodeType===Node.TEXT_NODE){g(e)}}}function a(e){s=e.data;if(typeof s==="undefined"){return}if(s.match(c)){var d=document.createElement("span");d.setAttribute("style","background:yellow");d.textContent=s;e.parentNode.replaceChild(d,e)}}b(document.body,a)})();
+
 ### substitutions_xkcd1288.js
 	javascript:(function(){var c=[{re:new RegExp("\\bwitnesses\\b","gmi"),subst:"these dudes I know"},{re:new RegExp("\\ballegedly\\b","gmi"),subst:"kinda probably"},{re:new RegExp("\\bnew\\s+study\\b","gmi"),subst:"Tumblr post"},{re:new RegExp("\\brebuild\\b","gmi"),subst:"avenge"},{re:new RegExp("\\bspace\\b","gmi"),subst:"spaaace"},{re:new RegExp("\\bgoogle\\s+glass\\b","gmi"),subst:"virtual boy"},{re:new RegExp("\\bsmartphone\\b","gmi"),subst:"Pokédex"},{re:new RegExp("\\belectric\\b","gmi"),subst:"atomic"},{re:new RegExp("\\bsenator\\b","gmi"),subst:"elf-lord"},{re:new RegExp("\\bcar\\b","gmi"),subst:"cat"},{re:new RegExp("\\belection\\b","gmi"),subst:"eating contest"},{re:new RegExp("\\bcongressional\\s+leaders\\b","gmi"),subst:"river spirits"},{re:new RegExp("\\bhomeland\\s+security\\b","gmi"),subst:"homestar runner"},{re:new RegExp("\\bcould\\s+not\\s+be\\s+reached\\s+for\\s+comment\\b","gmi"),subst:"is guilty and everyone knows it."}];function a(e,g){var d,f;if("undefined"===typeof e.nodeName){return}f=e.nodeName.toLowerCase();if(-1!==["script","style"].indexOf(f)){return}if(e.nodeType===Node.ELEMENT_NODE){if(e=e.firstChild){do{d=e.nextSibling;a(e,g)}while(e=d)}}else{if(e.nodeType===Node.TEXT_NODE){e.data=g(e.data)}}}function b(d){if(typeof d==="undefined"){return}for(i in c){o=c[i];d=d.replace(o.re,o.subst)}return d}document.title=b(document.title);a(document.body,b)})();
 
@@ -52,3 +55,4 @@ bl.ocks.js doesn't work in Firefox, vote for this [Firefox bug](https://bugzilla
 
 ### flashvideodownloader.js
 	javascript:(function(){document.location="http://www.flashvideodownloader.org/download2.php?u="+encodeURIComponent(document.location.href)}());
+
